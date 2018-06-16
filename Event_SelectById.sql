@@ -6,12 +6,12 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 -- =============================================
--- Author:		Brian Long
+-- Author: Brian Long
 -- Create date: 3/12/018
 -- Description:	Select Events_ProspectEvent By Id
 -- =============================================
 ALTER PROCEDURE [dbo].[Events_ProspectEvent_SelectById]
-	-- Add the parameters for the stored procedure here
+
   
 @Id int
 
