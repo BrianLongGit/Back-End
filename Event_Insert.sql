@@ -11,7 +11,7 @@ GO
 -- Description:	Insert an item into Events_ProspectEvent
 -- =============================================
 ALTER PROCEDURE [dbo].[Events_ProspectEvent_Insert]
-	-- Add the parameters for the stored procedure here
+
 	@Id int output,
 	@EventName nvarchar(250),
 	@EventTypeId int, 
@@ -31,8 +31,7 @@ ALTER PROCEDURE [dbo].[Events_ProspectEvent_Insert]
 	@ModifiedById int=null
 AS
 BEGIN
-	-- SET NOCOUNT ON added to prevent extra result sets from
-	-- interfering with SELECT statements.
+
 	SET NOCOUNT ON;
   
   
@@ -64,8 +63,6 @@ select * from dbo.events_prospectevent
 */----------------------------------------------------
 
     
-
--- Insert statements for procedure here
 insert into dbo.Events_ProspectEvent
 	  (EventName,
 		EventTypeId, 
