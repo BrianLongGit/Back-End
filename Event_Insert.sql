@@ -36,74 +36,74 @@ BEGIN
 	SET NOCOUNT ON;
   
   
-  		/* -------------- Test ------------------------------
-		declare @OutId int=0;
-		
-		exec  [dbo].[Events_ProspectEvent_Insert]
-	 		@EventName='Ultimate MMA Match',
-			@EventTypeId=1, 
-			@EventDescription='The competition you have been waiting for',
-			@AddressId = 2 , 
-			@StartDate= '02/01/2019', 
-			@EndDate='04/06/2019',
-			@StartTime='05:30:00',
-			@EndTime='08:00:00', 
-			@IsAllDayEvent=1, 
-			@CanRepeat=0, 
-			@TicketPrice=31.48, 
-			@PhotoUrl='test.url.website', 
-			@ExternalSiteUrl='external.site',
-			@IsAdminApproved=0,
-			@CreatedById = 5, 
-			@ModifiedById = 2,
+/* -------------- Test ------------------------------
+declare @OutId int=0;
+
+exec  [dbo].[Events_ProspectEvent_Insert]
+	@EventName='Ultimate MMA Match',
+	@EventTypeId=1, 
+	@EventDescription='The competition you have been waiting for',
+	@AddressId = 2 , 
+	@StartDate= '02/01/2019', 
+	@EndDate='04/06/2019',
+	@StartTime='05:30:00',
+	@EndTime='08:00:00', 
+	@IsAllDayEvent=1, 
+	@CanRepeat=0, 
+	@TicketPrice=31.48, 
+	@PhotoUrl='test.url.website', 
+	@ExternalSiteUrl='external.site',
+	@IsAdminApproved=0,
+	@CreatedById = 5, 
+	@ModifiedById = 2,
 
 
-		@Id=@OutId output
-		select * from dbo.events_prospectevent
-		
-		*/----------------------------------------------------
+@Id=@OutId output
+select * from dbo.events_prospectevent
+
+*/----------------------------------------------------
+
     
-    
 
-    -- Insert statements for procedure here
-	insert into dbo.Events_ProspectEvent
-		  (EventName,
-			EventTypeId, 
-			EventDescription,
-			AddressId, 
-			StartDate, 
-			EndDate,
-			StartTime,
-			EndTime, 
-			IsAllDayEvent, 
-			CanRepeat, 
-			TicketPrice, 
-			PhotoUrl, 
-			ExternalSiteUrl,
-			IsAdminApproved,
-			CreatedById, 
-			ModifiedById
-			)
+-- Insert statements for procedure here
+insert into dbo.Events_ProspectEvent
+	  (EventName,
+		EventTypeId, 
+		EventDescription,
+		AddressId, 
+		StartDate, 
+		EndDate,
+		StartTime,
+		EndTime, 
+		IsAllDayEvent, 
+		CanRepeat, 
+		TicketPrice, 
+		PhotoUrl, 
+		ExternalSiteUrl,
+		IsAdminApproved,
+		CreatedById, 
+		ModifiedById
+		)
 
-	values (
-			@EventName,
-			@EventTypeId, 
-			@EventDescription,
-			@AddressId, 
-			@StartDate, 
-			@EndDate,
-			@StartTime,
-			@EndTime, 
-			@IsAllDayEvent, 
-			@CanRepeat, 
-			@TicketPrice, 
-			@PhotoUrl, 
-			@ExternalSiteUrl,
-			@IsAdminApproved,
-			@CreatedById, 
-			@ModifiedById
-			)
+values (
+		@EventName,
+		@EventTypeId, 
+		@EventDescription,
+		@AddressId, 
+		@StartDate, 
+		@EndDate,
+		@StartTime,
+		@EndTime, 
+		@IsAllDayEvent, 
+		@CanRepeat, 
+		@TicketPrice, 
+		@PhotoUrl, 
+		@ExternalSiteUrl,
+		@IsAdminApproved,
+		@CreatedById, 
+		@ModifiedById
+		)
 
-		set @Id=SCOPE_IDENTITY()
+	set @Id=SCOPE_IDENTITY()
 
 				
