@@ -11,14 +11,12 @@ GO
 -- Description:	Delete an item from Events_ProspectEvent at Id.
 -- =============================================
 ALTER PROCEDURE [dbo].[Events_ProspectEvent_Delete]
-	-- Add the parameters for the stored procedure here
-	
-	@Id int
+
+@Id int
   
 AS
 BEGIN
-	-- SET NOCOUNT ON added to prevent extra result sets from
-	-- interfering with SELECT statements.
+
 	SET NOCOUNT ON;
   
   /* ------- Test Code ---------
@@ -28,10 +26,8 @@ BEGIN
 
  */----------------------------
 
-
 	Delete dbo.Events_ProspectEvent
 	where Id=@Id
-
 
 
 END
