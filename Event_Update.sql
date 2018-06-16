@@ -11,39 +11,37 @@ GO
 -- Description: Update an item in Events_ProspectEvent
 -- =============================================
 ALTER PROCEDURE [dbo].[Events_ProspectEvent_Update]
-	-- Add the parameters for the stored procedure here
-			@AddressTypeId int,
-			@StreetAddress nvarchar(250),
-			@City nvarchar(100),
-			@StateProvinceId int,
-			@PostalCode int,
 
-			@Id int output,
-			@EventName nvarchar(250),
-			@EventTypeId int, 
-			@EventDescription nvarchar(2000),
-			@AddressId int, 
-			@StartDate date, 
-			@EndDate date,
-			@StartTime time=null,
-			@EndTime time=null, 
-			@IsAllDayEvent bit, 
-			@CanRepeat bit, 
-			@TicketPrice money=null, 
-			@PhotoUrl nvarchar(128)=null, 
-			@ExternalSiteUrl nvarchar(128)=null,
-			@IsAdminApproved bit,
-			@CreatedById int, 
-			@ModifiedById int=null
+	@AddressTypeId int,
+	@StreetAddress nvarchar(250),
+	@City nvarchar(100),
+	@StateProvinceId int,
+	@PostalCode int,
+
+	@Id int output,
+	@EventName nvarchar(250),
+	@EventTypeId int, 
+	@EventDescription nvarchar(2000),
+	@AddressId int, 
+	@StartDate date, 
+	@EndDate date,
+	@StartTime time=null,
+	@EndTime time=null, 
+	@IsAllDayEvent bit, 
+	@CanRepeat bit, 
+	@TicketPrice money=null, 
+	@PhotoUrl nvarchar(128)=null, 
+	@ExternalSiteUrl nvarchar(128)=null,
+	@IsAdminApproved bit,
+	@CreatedById int, 
+	@ModifiedById int=null
 
 
 AS
 BEGIN
-	-- SET NOCOUNT ON added to prevent extra result sets from
-	-- interfering with SELECT statements.
+
 	SET NOCOUNT ON;
 
-    -- Insert statements for procedure here
     
   /* --------------- Test ---------------------------
 
@@ -75,33 +73,31 @@ BEGIN
   select * from dbo.events_prospectevent
   */	------------------------------------------------
 
+exec dbo.Address_Address_Update
+	@Id= @AddressId,
+	@AddressTypeId = @AddressTypeId,
+	@StreetAddress = @StreetAddress,
+	@City = @City,
+	@StateProvinceId = @StateProvinceId,
+	@PostalCode = @PostalCode
 
-
-	exec dbo.Address_Address_Update
-		@Id= @AddressId,
-		@AddressTypeId = @AddressTypeId,
-		@StreetAddress = @StreetAddress,
-		@City = @City,
-		@StateProvinceId = @StateProvinceId,
-		@PostalCode = @PostalCode
-
-	update  dbo.Events_ProspectEvent
-	set 
-			EventName=@EventName, 
-			EventTypeId=@EventTypeId, 
-			EventDescription=@EventDescription,
-			StartDate=@StartDate,  
-			EndDate=@EndDate,
-			StartTime=@StartTime,
-			EndTime=@EndTime,
-			IsAllDayEvent=@IsAllDayEvent,
-			CanRepeat=@CanRepeat, 
-			TicketPrice=@TicketPrice,
-			PhotoUrl=@PhotoUrl,
-			ExternalSiteUrl=@ExternalSiteUrl,
-			IsAdminApproved=@IsAdminApproved,
-			ModifiedById=@ModifiedById
-			where Id=@Id
+update  dbo.Events_ProspectEvent
+set 
+	EventName=@EventName, 
+	EventTypeId=@EventTypeId, 
+	EventDescription=@EventDescription,
+	StartDate=@StartDate,  
+	EndDate=@EndDate,
+	StartTime=@StartTime,
+	EndTime=@EndTime,
+	IsAllDayEvent=@IsAllDayEvent,
+	CanRepeat=@CanRepeat, 
+	TicketPrice=@TicketPrice,
+	PhotoUrl=@PhotoUrl,
+	ExternalSiteUrl=@ExternalSiteUrl,
+	IsAdminApproved=@IsAdminApproved,
+	ModifiedById=@ModifiedById
+	where Id=@Id
 
 
 END
