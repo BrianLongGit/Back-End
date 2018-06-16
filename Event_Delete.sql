@@ -26,11 +26,11 @@ BEGIN
 	exec dbo.Events_ProspectEvent
 	@Id=29
 
-	*/----------------------------
+ */----------------------------
 
 
-		Delete dbo.Events_ProspectEvent
-		where Id=@Id
+	Delete dbo.Events_ProspectEvent
+	where Id=@Id
 
 
 
