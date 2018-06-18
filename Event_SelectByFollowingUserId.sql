@@ -1,6 +1,6 @@
 USE [TeamProspectClone]
 GO
-/****** Object:  StoredProcedure [dbo].[Events_ProspectEvent_SelectAllEventsFollowingUserId]    Script Date: 6/15/2018 5:44:56 PM ******/
+/****** Object:  StoredProcedure [dbo].[Events_SelectAllEventsFollowingUserId]    Script Date: 6/15/2018 5:44:56 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -10,7 +10,7 @@ GO
 -- Create date: 04/05/2018
 -- Description:	Select All Events of Athletes followed by User Id
 -- =============================================
-ALTER PROCEDURE [dbo].[Events_ProspectEvent_SelectByFollowingUserId]
+ALTER PROCEDURE [dbo].[Events_SelectByFollowingUserId]
 	-- Add the parameters for the stored procedure here
   
 @UserBaseId int 
@@ -25,7 +25,7 @@ SET NOCOUNT ON;
     
   /* -------------------- Test ------------------------------
 
-	exec dbo.Events_ProspectEvent_SelectAllEventsFollowingUserId
+	exec dbo.Events_SelectAllEventsFollowingUserId
 	@UserBaseId=25
 
 	exec dbo.Events_ProspectEvent_SelectAll
@@ -72,7 +72,7 @@ SELECT
 	ea.Attendance
 
 
-FROM dbo.Events_ProspectEvent as p
+FROM dbo.Events as p
 
 inner join dbo.Address_Address as a
 
