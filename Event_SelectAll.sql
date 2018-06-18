@@ -1,6 +1,6 @@
 USE [TeamProspectClone]
 GO
-/****** Object:  StoredProcedure [dbo].[Events_ProspectEvent_SelectAll]    Script Date: 6/15/2018 11:42:15 PM ******/
+/****** Object:  StoredProcedure [dbo].[Events_SelectAll]    Script Date: 6/15/2018 11:42:15 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -8,9 +8,9 @@ GO
 -- =============================================
 -- Author: Brian Long
 -- Create date: 3/12/2018
--- Description:	Select All from Events_ProspectEvent
+-- Description:	Select All from Events
 -- =============================================
-ALTER PROCEDURE [dbo].[Events_ProspectEvent_SelectAll] 
+ALTER PROCEDURE [dbo].[Events_SelectAll] 
 
 AS
 BEGIN
@@ -20,7 +20,7 @@ BEGIN
     
   /* ------------ Test ------------------
 
- exec dbo.Events_ProspectEvent_SelectAll
+ exec dbo.Events_SelectAll
 
 
  */ -------------------------------------
@@ -64,7 +64,7 @@ SELECT
 
 
 
-from dbo.Events_ProspectEvent as p
+from dbo.Events as p
 
 join dbo.Address_Address as a
 
