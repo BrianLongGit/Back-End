@@ -8,9 +8,9 @@ GO
 -- =============================================
 -- Author:		Brian Long
 -- Create date: 3/12/2018
--- Description: Update an item in Events_ProspectEvent
+-- Description: Update an item in Events
 -- =============================================
-ALTER PROCEDURE [dbo].[Events_ProspectEvent_Update]
+ALTER PROCEDURE [dbo].[Events_Update]
 
 	@AddressTypeId int,
 	@StreetAddress nvarchar(250),
@@ -49,7 +49,7 @@ BEGIN
   declare @OutId int=0;
   declare @FakeDate datetime2(7) = GetUTCDate();
 
-  exec  [dbo].[Events_ProspectEvent_Insert]
+  exec  [dbo].[Events_Update]
     @Id=3,
     @EventName='Q & A',
     @EventTypeId=3, 
@@ -70,10 +70,10 @@ BEGIN
 
 
 
-  select * from dbo.events_prospectevent
+  select * from dbo.events
   */	------------------------------------------------
 
-exec dbo.Address_Address_Update
+exec dbo.Address_Update
 	@Id= @AddressId,
 	@AddressTypeId = @AddressTypeId,
 	@StreetAddress = @StreetAddress,
@@ -81,7 +81,7 @@ exec dbo.Address_Address_Update
 	@StateProvinceId = @StateProvinceId,
 	@PostalCode = @PostalCode
 
-update  dbo.Events_ProspectEvent
+update  dbo.Events
 set 
 	EventName=@EventName, 
 	EventTypeId=@EventTypeId, 
