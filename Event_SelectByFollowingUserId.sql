@@ -1,6 +1,6 @@
 USE [TeamProspectClone]
 GO
-/****** Object:  StoredProcedure [dbo].[Events_SelectAllEventsFollowingUserId]    Script Date: 6/15/2018 5:44:56 PM ******/
+/****** Object:  StoredProcedure [dbo].[Events_SelectByFollowingUserId]    Script Date: 6/15/2018 5:44:56 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -25,7 +25,7 @@ SET NOCOUNT ON;
     
   /* -------------------- Test ------------------------------
 
-	exec dbo.Events_SelectAllEventsFollowingUserId
+	exec [dbo].[Events_SelectByFollowingUserId]
 	@UserBaseId=25
 
 	exec dbo.Events_ProspectEvent_SelectAll
