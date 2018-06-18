@@ -1,6 +1,6 @@
 USE [TeamProspectClone]
 GO
-/****** Object:  StoredProcedure [dbo].[Events_ProspectEvent_SelectEventById]    Script Date: 6/15/2018 5:38:23 PM ******/
+/****** Object:  StoredProcedure [dbo].[Events_SelectEventById]    Script Date: 6/15/2018 5:38:23 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -10,7 +10,7 @@ GO
 -- Create date: 04/16/2018
 -- Description:	Get Event by Id with concatenations and joins
 -- =============================================
-ALTER PROCEDURE [dbo].[Events_ProspectEvent_SelectEventById]
+ALTER PROCEDURE [dbo].[Events_SelectEventById]
 
 	@Id int, --event id
 	@UserBaseId int
@@ -21,10 +21,10 @@ BEGIN
   
   /* ---------------- Test --------------------
 	
-	exec dbo.events_prospectevent_selecteventbyid
+	exec dbo.events_selecteventbyid
 	@Id =33,  @UserBaseId = 21
 	
-	*/ ------------------------------------------
+*/ ------------------------------------------
 
 	declare @attendance nvarchar(10) = (select top 1 Attendance from Events_EventAttendance
 	where UserBaseId=@UserBaseId and EventId=@Id)
@@ -69,12 +69,9 @@ BEGIN
         p.CreatedById,
         p.ModifiedDate,
         p.ModifiedById
-        --u.FollowingUserId,
-        --u.FollowedByUserId,
-        --u.CreatedDate,
-       -- ea.Attendance
 
-from dbo.Events_ProspectEvent as p
+
+from dbo.Events as p
 inner join dbo.Address_Address as a
 on p.AddressId = a.Id
 inner join dbo.StateProvince as sp 
@@ -85,9 +82,8 @@ inner join Address_AddressType as at
 on at.Id = a.AddressTypeId
 inner join dbo.Users_UserProfile as up
 on up.UserBaseId = p.CreatedById
--- join dbo.Events_EventAttendance as ea 
---on ea.EventId = p.Id 
-where p.id = @Id-- and  ea.UserBaseId = @UserBaseId
+
+where p.id = @Id
 
 
 
