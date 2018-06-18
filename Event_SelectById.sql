@@ -29,7 +29,7 @@ exec dbo.Events_SelectById
 
 SELECT [Id], [EventName], [EventTypeId], [EventDescription], [AddressId], [StartDate],
 [EndDate], [StartTime], [EndTime], [IsAllDayEvent], [CanRepeat], [TicketPrice], [PhotoUrl], [ExternalSiteUrl],
-[IsAdminApproved], [CreatedDate], [CreatedById], [ModifiedDate], [ModifiedById] from dbo.Events_ProspectEvent
+[IsAdminApproved], [CreatedDate], [CreatedById], [ModifiedDate], [ModifiedById] from dbo.Events
 
 where Id=@Id
 
