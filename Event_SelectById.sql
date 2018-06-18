@@ -1,6 +1,6 @@
 USE [TeamProspectClone]
 GO
-/****** Object:  StoredProcedure [dbo].[Events_ProspectEvent_SelectById]    Script Date: 6/15/2018 5:44:52 PM ******/
+/****** Object:  StoredProcedure [dbo].[Events_SelectById]    Script Date: 6/15/2018 5:44:52 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -8,9 +8,9 @@ GO
 -- =============================================
 -- Author: Brian Long
 -- Create date: 3/12/018
--- Description:	Select Events_ProspectEvent By Id
+-- Description:	Select Events By Id
 -- =============================================
-ALTER PROCEDURE [dbo].[Events_ProspectEvent_SelectById]
+ALTER PROCEDURE [dbo].[Events_SelectById]
 
   
 @Id int
@@ -22,7 +22,7 @@ SET NOCOUNT ON;
 
   /* ------------ Test -------------------
 
-exec dbo.Events_ProspectEvent_SelectById
+exec dbo.Events_SelectById
 @Id=5
 
 */ -------------------------------------
