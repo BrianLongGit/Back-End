@@ -1,6 +1,6 @@
 USE [TeamProspectClone]
 GO
-/****** Object:  StoredProcedure [dbo].[Events_ProspectEvent_Insert]    Script Date: 6/15/2018 11:21:39 PM ******/
+/****** Object:  StoredProcedure [dbo].[Events_Insert]    Script Date: 6/15/2018 11:21:39 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -8,9 +8,9 @@ GO
 -- =============================================
 -- Author:		Brian Long
 -- Create date: 3/12/2018
--- Description:	Insert an item into Events_ProspectEvent
+-- Description:	Insert an item into Events
 -- =============================================
-ALTER PROCEDURE [dbo].[Events_ProspectEvent_Insert]
+ALTER PROCEDURE [dbo].[Events_Insert]
 
 	@Id int output,
 	@EventName nvarchar(250),
@@ -38,7 +38,7 @@ BEGIN
 /* -------------- Test ------------------------------
 declare @OutId int=0;
 
-exec  [dbo].[Events_ProspectEvent_Insert]
+exec  [dbo].[Events_Insert]
 	@EventName='Ultimate MMA Match',
 	@EventTypeId=1, 
 	@EventDescription='The competition you have been waiting for',
@@ -58,12 +58,12 @@ exec  [dbo].[Events_ProspectEvent_Insert]
 
 
 @Id=@OutId output
-select * from dbo.events_prospectevent
+select * from dbo.events
 
 */----------------------------------------------------
 
     
-insert into dbo.Events_ProspectEvent
+insert into dbo.Events
 	  (EventName,
 		EventTypeId, 
 		EventDescription,
