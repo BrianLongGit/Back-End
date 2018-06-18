@@ -1,6 +1,6 @@
 USE [TeamProspectClone]
 GO
-/****** Object:  StoredProcedure [dbo].[Events_ProspectEvent_Delete]    Script Date: 6/15/2018 5:22:21 PM ******/
+/****** Object:  StoredProcedure [dbo].[Events_Delete]    Script Date: 6/15/2018 5:22:21 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -8,9 +8,9 @@ GO
 -- =============================================
 -- Author:		Brian Long
 -- Create date: 3/13/2018
--- Description:	Delete an item from Events_ProspectEvent at Id.
+-- Description:	Delete an item from Events at Id.
 -- =============================================
-ALTER PROCEDURE [dbo].[Events_ProspectEvent_Delete]
+ALTER PROCEDURE [dbo].[Events_Delete]
 
 @Id int
   
@@ -21,12 +21,12 @@ BEGIN
   
   /* ------- Test Code ---------
   
-	exec dbo.Events_ProspectEvent
+	exec dbo.Events
 	@Id=29
 
  */----------------------------
 
-	Delete dbo.Events_ProspectEvent
+	Delete dbo.Events
 	where Id=@Id
 
 
